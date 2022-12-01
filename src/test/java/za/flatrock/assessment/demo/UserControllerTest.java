@@ -32,12 +32,9 @@ public class UserControllerTest {
     public void createUserTest() throws Exception {
 
         // Given
-        CreateUserResponse response = new CreateUserResponse(1L, "TestName", "TestSurname");
+        CreateUserResponse response = new CreateUserResponse(1L, "TestName", "TestSurname","","");
         when(createUserService.create(any())).thenReturn(response);
-        CreateUserRequest request = new CreateUserRequest(
-                "TestName",
-                "TestSurname"
-        );
+        CreateUserRequest request = new CreateUserRequest("TestName", "TestSurname", "TestSurnam", "TestSurname",2);
 
         // Then When
         this.mockMvc.perform(
@@ -56,5 +53,6 @@ public class UserControllerTest {
             assertEquals("TestSurname", apiResponse.getSurname());
         });
     }
+
 
 }

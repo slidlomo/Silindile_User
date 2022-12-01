@@ -5,13 +5,15 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 @Entity
 @Table(name = "Role")
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
-public class Role {
+@Embeddable
+public class Role implements Serializable  {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

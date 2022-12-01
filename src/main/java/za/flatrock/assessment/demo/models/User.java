@@ -8,6 +8,8 @@ import javax.persistence.*;
 @Table(name = "User")
 @Data
 public class User {
+   /* @EmbeddedId
+    private Role role;*/
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -16,13 +18,18 @@ public class User {
     private String name;
 
     private String surname;
+    private String phoneNumber;
+    private String role;
+
 
     public User() {
     }
 
-    public User(Long id, String name, String surname) {
+    public User(Long id, String name, String surname,String phoneNumber,String role) {
         this.id = id;
         this.name = name;
         this.surname = surname;
+        this.phoneNumber= phoneNumber;
+        this.role= role;
     }
 }
